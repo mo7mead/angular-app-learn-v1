@@ -1,0 +1,29 @@
+<h1>Total Order Price: {{totolOrderPrice}}</h1>
+<h2>Selected Category is: {{selectCategoryId}} </h2>
+<div class="mb-5">
+    <label for="" class="form-lable">Select Category</label>
+    <!-- (change)="filterProducts()"  -->
+    <select class="form-select form-select-lg" name="" id="" [(ngModel)]="selectCategoryId">
+        <option value="" *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+    </select>
+</div>
+
+<!-- <button class="btn btn-primary mb-2" (click)="change()">Change Category</button> -->
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    <div class="col" *ngFor="let prd of products" [class.d-none]="prd.catId!=selectCategoryId">
+        <div class="card" appHighlightCard externalColor="green">
+            <img [src]="prd.imgUrl" class="card-img-top" alt="{{prd.name}}">
+            <div class="card-body">
+                <h5 class="card-title">Name: {{prd.name}}</h5>
+                <p class="card-text">Price: {{prd.price |currency: 'EGP': 'code' }}</p>
+                <p class="card-text">Quantity: {{prd.quantity}}</p>
+                <input class="input-group-text mb-2" type="number" #countInput>
+                <button class="btn btn-primary" (click)="buy(countInput.value, prd.price)">SHOP</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <h2>{{myDate | date: 'short'}}</h2> -->
+
+<h2>{{number | squrae:3}}</h2>
