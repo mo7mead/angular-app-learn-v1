@@ -4,11 +4,10 @@ import { CommonModule } from '@angular/common';
 import { Icategory } from '../../models/icategory';
 import { FormsModule } from '@angular/forms';
 import { HighlightCardDirective } from '../../directives/highlight-card.directive';
-import { SquraePipe } from '../../pipes/squrae.pipe';
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, FormsModule, HighlightCardDirective, SquraePipe],
+  imports: [CommonModule, FormsModule, HighlightCardDirective, ],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
@@ -121,7 +120,7 @@ export class ProductsComponent {
         },
         {
           id: 2,
-          name: "HackerOne"
+          name: "Best"
         }
       ]
   }
