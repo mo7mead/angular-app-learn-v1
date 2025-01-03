@@ -7,7 +7,7 @@ import { HighlightCardDirective } from '../../directives/highlight-card.directiv
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule, FormsModule, HighlightCardDirective, ],
+  imports: [CommonModule, FormsModule, HighlightCardDirective,],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
