@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { Iproduct } from '../../models/iproduct';
 import { CommonModule } from '@angular/common';
 import { Icategory } from '../../models/icategory';
@@ -11,15 +11,15 @@ import { HighlightCardDirective } from '../../directives/highlight-card.directiv
   templateUrl: './products.component.html',
   styleUrl: './products.component.css'
 })
-export class ProductsComponent {
+export class ProductsComponent  {
 
-  products: Iproduct[];
-  // filterProducts: Iproduct[]
-  categories: Icategory[] | undefined;
+  products: Iproduct[]
   selectCategoryId: number = 0
   totolOrderPrice: number = 0
   myDate: Date = new Date()
   number: number = 4
+
+  @Input() recivedCatId: number = 0
 
   constructor() {
     this.products = [
@@ -107,23 +107,11 @@ export class ProductsComponent {
         imgUrl: 'https://picsum.photos/200/300',
         catId: 2
       }
-    ],
+    ]
 
-      this.categories = [
-        {
-          id: 1,
-          name: "Laptop"
-        }
-        , {
-          id: 20,
-          name: "Home"
-        },
-        {
-          id: 2,
-          name: "Best"
-        }
-      ]
+
   }
+
 
   buy(count: string, price: number) {
     this.totolOrderPrice += parseInt(count) * price
@@ -133,7 +121,4 @@ export class ProductsComponent {
     this.selectCategoryId = 3
   }
 
-  // filterProducts() {
-
-  // }
 }

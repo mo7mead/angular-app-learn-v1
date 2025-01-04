@@ -1,12 +1,7 @@
+
 <h1>Total Order Price: {{totolOrderPrice}}</h1>
 <h2>Selected Category is: {{selectCategoryId}} </h2>
-<div class="mb-5 v-secreen">
-    <label for="" class="form-lable">Select Category</label>
-    <!-- (change)="filterProducts()"  -->
-    <select class="form-select form-select-lg" name="" id="" [(ngModel)]="selectCategoryId">
-        <option value="" *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
-    </select>
-</div>
+
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
     <div class="col" *ngFor="let prd of products" [class.d-none]="prd.catId!=selectCategoryId">
@@ -22,3 +17,6 @@
         </div>
     </div>
 </div>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
