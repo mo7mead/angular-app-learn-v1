@@ -6,7 +6,7 @@ import { OrderComponent } from "./components/order/order.component";
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, FooterComponent, OrderComponent],
+  imports: [HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
