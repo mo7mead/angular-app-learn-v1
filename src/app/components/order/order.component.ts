@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, viewChild } from '@angular/core';
 import { Icategory } from '../../models/icategory';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,9 +10,12 @@ import { ProductsComponent } from "../products/products.component";
   templateUrl: './order.component.html',
   styleUrl: './order.component.css'
 })
-export class OrderComponent {
+export class OrderComponent implements AfterViewInit {
   selectCategoryId: number = 0
-  categories: Icategory[] | undefined;
+  categories: Icategory[] | undefined
+
+  @ViewChild('inputUserName') myInput!: ElementRef;
+
 
 
   constructor() {
@@ -32,5 +35,10 @@ export class OrderComponent {
         name: "Best"
       }
     ]
+  }
+
+  ngAfterViewInit(): void {
+    this.myInput.nativeElement.value = "mo7mead"
+
   }
 }
