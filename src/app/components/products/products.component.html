@@ -1,22 +1,23 @@
-
 <h1>Total Order Price: {{totolOrderPrice}}</h1>
 <h2>Selected Category is: {{selectCategoryId}} </h2>
 
 
 <div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col" *ngFor="let prd of products" [class.d-none]="prd.catId!=selectCategoryId">
-        <div class="card" appHighlightCard externalColor="green">
-            <img [src]="prd.imgUrl" class="card-img-top" alt="{{prd.name}}">
+    <div class="col" *ngFor="let prd of products" [class.d-none]="prd.catId !== selectCategoryId">
+        <div class="card" appHighlightCard [externalColor]="'green'">
+            <img [src]="prd.imgUrl" class="card-img-top" [alt]="prd.name || 'Product Image'">
             <div class="card-body">
-                <h5 class="card-title">Name: {{prd.name}}</h5>
-                <p class="card-text">Price: {{prd.price |currency: 'EGP': 'code' }}</p>
-                <p class="card-text">Quantity: {{prd.quantity}}</p>
-                <input class="input-group-text mb-2" type="number" #countInput>
-                <button class="btn btn-primary" (click)="buy(countInput.value, prd.price)">SHOP</button>
+                <h5 class="card-title">Name: {{ prd.name }}</h5>
+                <p class="card-text">Price: {{ prd.price | currency: 'EGP':'symbol' }}</p>
+                <p class="card-text">Quantity: {{ prd.quantity }}</p>
+                <div class="input-group mb-2">
+                    <input type="number" #countInput class="form-control" placeholder="Enter quantity" min="1">
+                    <button class="btn btn-primary" [disabled]="prd.quantity <= 0"
+                        (click)="buy(countInput.value, prd.price)">
+                        Shop
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<div class="row row-cols-1 row-cols-md-4 g-4">
-
